@@ -4,7 +4,7 @@ sudo docker run -v "$(pwd)/home:/build" -i -t debian:bookworm  /bin/bash
 
 apt update
 
-apt install gawk wget git diffstat unzip texinfo gcc build-essential chrpath socat cpio python3 python3-pip python3-pexpect xz-utils debianutils iputils-ping python3-git python3-jinja2 libegl1-mesa libsdl1.2-dev python3-subunit mesa-common-dev zstd liblz4-tool file locales libacl1 vim intltool sudo gnu-efi automake
+apt install gawk wget git diffstat unzip texinfo gcc build-essential chrpath socat cpio python3 python3-pip python3-pexpect xz-utils debianutils iputils-ping python3-git python3-jinja2 libegl1-mesa libsdl1.2-dev python3-subunit mesa-common-dev zstd liblz4-tool file locales libacl1 vim intltool sudo gnu-efi automake nim
 
 locale-gen en_US en_US.UTF-8
 dpkg-reconfigure locales 
