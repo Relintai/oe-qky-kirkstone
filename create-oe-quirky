@@ -13,7 +13,7 @@ if [ ! -d downloads-oe ];then #sanity check.
 fi
 
 #BUILDSPATH='/mnt/build/oe-kirkstone' ###SET THIS###
-BUILDSPATH='/mnt/build/builds/oe/kirkstone'
+BUILDSPATH='/build/kirkstone'
 if [ ! -d $BUILDSPATH ];then
  echo "Error, folder ${BUILDSPATH} does not exist."
  exit
