@@ -27,6 +27,7 @@ do_configure:prepend() {
 do_install:prepend() {
  #failing to install the .mo files
  echo -e '\nall:\n\ninstall:\n\nall-am:\n\n' > ${B}/po/Makefile
+ sed -i -e 's/-e//' ${B}/po/Makefile
 }
 
 do_install:append() {
