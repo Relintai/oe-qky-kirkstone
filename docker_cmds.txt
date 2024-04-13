@@ -13,6 +13,10 @@ dpkg-reconfigure locales
 
 git config --global safe.directory '*'
 
+
+# There is likely a better solution
+# Tar fails on EasyOS when running as root on some packages, because of groups
+# Only needed on EasyOS Start
 cd /usr/bin/
 mv tar tart
 vim tar
@@ -21,15 +25,14 @@ vim tar
 /bin/tart "$@" --no-same-owner
 
 chmod +x tar
+# Only needed on EasyOS End
 
 # build
 
 cd /build/oe-qky-kirkstone
-
 ./create-oe-quirky
 
-cd /build/kirkstone/oe-quirky
-tar -xvf /build/tarballs-libreoffice.tar.gz
+#do changes/changes.txt
 
 source oe-init-build-env build-amd64
 bitbake core-image-minimal
