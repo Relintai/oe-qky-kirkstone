@@ -86,9 +86,26 @@ do_compile:prepend() {
 
 
 vim /build/kirkstone/oe-quirky/meta-office/recipes-libreoffice/libreoffice/libreoffice.bb
-vim /build/kirkstone/oe-quirky/build-amd64/tmp/work/nocona-64-poky-linux/libreoffice/7.4.2.3-r8/build
+vim /build/kirkstone/oe-quirky/build-amd64/tmp/work/nocona-64-poky-linux/libreoffice/7.4.2.3-r8/build/Makefile
 
--e del
+orig:
+
+endif # MAKE_RESTARTS
+
+# vim: set noet sw=4 ts=4:
+-e 
+
+check-if-root:
+
+fix to:
+
+endif # MAKE_RESTARTS
+
+# vim: set noet sw=4 ts=4:
+
+
+check-if-root:
+
 
 
 vim /build/kirkstone/oe-quirky/build-amd64/tmp/work/nocona-64-poky-linux/xresprobe/0.4.25-r6/xresprobe-0.4.24ubuntu9/ddcprobe/common.h
@@ -107,15 +124,6 @@ enum {
         edid_monitor_descriptor_range = 0xfd,
         edid_monitor_descriptor_name = 0xfc,
 } ;
-
-
-
-TODO
-
-/build/kirkstone/oe-quirky/build-amd64/tmp/work/nocona-64-poky-linux/guvcview/2.0.7-2-r6/guvcview-2.0.7-2/
-chmod 755
-
-still needed?
 
 
 
