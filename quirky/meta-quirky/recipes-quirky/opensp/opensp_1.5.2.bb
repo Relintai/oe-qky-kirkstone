@@ -22,7 +22,8 @@ EXTRA_OECONF = "--disable-doc-build --enable-default-search-path=/usr/share/sgml
 
 do_configure:prepend() {
     sed -i 's/32,/253,/' ${S}/lib/Syntax.cxx
-    sed -i 's/LITLEN          240 /LITLEN          8092/' ${S}/unicode/{gensyntax.pl,unicode.syn}
+    sed -i 's/LITLEN          240 /LITLEN          8092/' ${S}/unicode/gensyntax.pl
+    sed -i 's/LITLEN          240 /LITLEN          8092/' ${S}/unicode/unicode.syn
 }
 
 #BK 2020-09-19 do not reconstruct configure...
