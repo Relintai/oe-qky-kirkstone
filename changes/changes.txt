@@ -1,16 +1,17 @@
 
+cd /build/kirkstone/oe-quirky/scripts
+./install-buildtools
 
-/build/kirkstone/oe-quirky/meta-office/recipes-filter/libmwaw/
+vim /build/kirkstone/oe-quirky/build-amd64/conf/local.conf
 
-replace file
-
-/build/kirkstone/oe-quirky/build-amd64/tmp/work/nocona-64-poky-linux/guvcview/2.0.7-2-r6/guvcview-2.0.7-2/
-chmod 755
-
-still needed?
+customize threads
 
 
-/build/kirkstone/oe-quirky/meta-office/recipes-libreoffice/libreoffice/libreoffice-native.bb
+cp /build/oe-qky-kirkstone/changes/libmwaw_0.3.22.bb /build/kirkstone/oe-quirky/meta-office/recipes-filter/libmwaw/
+rm /build/kirkstone/oe-quirky/meta-office/recipes-filter/libmwaw/libmwaw_0.3.21.bb
+
+vim /build/kirkstone/oe-quirky/meta-office/recipes-libreoffice/libreoffice/libreoffice-native.bb
+
 
 do_configure() {
     olddir=`pwd`
@@ -27,8 +28,9 @@ do_configure() {
     sed -i -e 's/-e//' Makefile
 }
 
+vim /build/kirkstone/oe-quirky/meta-quirky/recipes-quirky/xsane/xsane_0.999.bb
 
-/build/kirkstone/oe-quirky/meta-quirky/recipes-quirky/xsane/xsane_0.999.bb
+
 
 do_compile:prepend() {
  #make[1]: RANLIB@: No such file or directory
@@ -39,7 +41,8 @@ do_compile:prepend() {
  sed -i -e 's/-e//' ${B}/po/Makefile
 }
 
-/build/kirkstone/oe-quirky/meta-quirky/recipes-quirky/xine-ui/xine-ui_0.99.13.bb
+
+vim /build/kirkstone/oe-quirky/meta-quirky/recipes-quirky/xine-ui/xine-ui_0.99.13.bb
 
 for aMake in `find ${B} -type f -name Makefile`
  do
@@ -59,7 +62,36 @@ for aMake in `find ${B} -type f -name Makefile`
 }
 
 
-/build/kirkstone/oe-quirky/build-amd64/tmp/work/nocona-64-poky-linux/xresprobe/0.4.25-r6/xresprobe-0.4.24ubuntu9/ddcprobe
+
+vim /build/kirkstone/oe-quirky/meta-quirky/recipes-quirky/pup-tools/pup-tools_20221101.bb
+vim /build/kirkstone/oe-quirky/meta-quirky/recipes-quirky/nim/nim_1.6.10.bb
+
+  echo "${CC}"
+ # export CC="${CC/ */}"
+  export CC="gcc"
+  echo asd5
+
+
+
+vim /build/kirkstone/oe-quirky/meta-quirky/recipes-quirky/ccrypt/ccrypt_1.11.bb
+
+
+do_compile:prepend() {
+ echo -e '\n\nall:\n\nall-no:\n\nall-yes:\n\nall-no-yes:\n\nall-nono:\n\ncheck:\n\ninstall:\n\ninstall-exec:\n\ninstall-data:\n\ninstall-strip:\n\ninstall-dvi install-html install-info install-ps install-pdf:\n\ninstalldirs:\n\ninstallcheck:\n\nuninstall:\n\ninfo dvi ps pdf html:\n\nclean:\n\ndistclean:\n\nMakefile:\n\n' > ${B}/intl/Makefile
+ sed -i -e 's/-e//' ${B}/intl/Makefile
+}
+
+
+# The build will fail, then these can be done
+
+
+vim /build/kirkstone/oe-quirky/meta-office/recipes-libreoffice/libreoffice/libreoffice.bb
+vim /build/kirkstone/oe-quirky/build-amd64/tmp/work/nocona-64-poky-linux/libreoffice/7.4.2.3-r8/build
+
+-e del
+
+
+vim /build/kirkstone/oe-quirky/build-amd64/tmp/work/nocona-64-poky-linux/xresprobe/0.4.25-r6/xresprobe-0.4.24ubuntu9/ddcprobe
 
 enum {  
         edid_monitor_descriptor_serial = 0xff,
@@ -77,29 +109,13 @@ enum {
 } ;
 
 
-/build/kirkstone/oe-quirky/meta-quirky/recipes-quirky/pup-tools/pup-tools_20221101.bb
-/build/kirkstone/oe-quirky/meta-quirky/recipes-quirky/nim/nim_1.6.10.bb
 
-  echo "${CC}"
- # export CC="${CC/ */}"
-  export CC="gcc"
-  echo asd5
+TODO
 
+/build/kirkstone/oe-quirky/build-amd64/tmp/work/nocona-64-poky-linux/guvcview/2.0.7-2-r6/guvcview-2.0.7-2/
+chmod 755
 
-
-/build/kirkstone/oe-quirky/meta-quirky/recipes-quirky/ccrypt/ccrypt_1.11.bb
-
-
-do_compile:prepend() {
- echo -e '\n\nall:\n\nall-no:\n\nall-yes:\n\nall-no-yes:\n\nall-nono:\n\ncheck:\n\ninstall:\n\ninstall-exec:\n\ninstall-data:\n\ninstall-strip:\n\ninstall-dvi install-html install-info install-ps install-pdf:\n\ninstalldirs:\n\ninstallcheck:\n\nuninstall:\n\ninfo dvi ps pdf html:\n\nclean:\n\ndistclean:\n\nMakefile:\n\n' > ${B}/intl/Makefile
- sed -i -e 's/-e//' ${B}/intl/Makefile
-}
-
-
-/build/kirkstone/oe-quirky/meta-office/recipes-libreoffice/libreoffice/libreoffice.bb
-/build/kirkstone/oe-quirky/build-amd64/tmp/work/nocona-64-poky-linux/libreoffice/7.4.2.3-r8/build
-
--e del
+still needed?
 
 
 
