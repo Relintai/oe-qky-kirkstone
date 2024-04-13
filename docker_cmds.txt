@@ -1,0 +1,37 @@
+sudo docker pull debian:bookworm
+
+sudo docker run -v "$(pwd)/home:/build" -i -t debian:bookworm  /bin/bash
+
+apt update
+
+apt install gawk wget git diffstat unzip texinfo gcc build-essential chrpath socat cpio python3 python3-pip python3-pexpect xz-utils debianutils iputils-ping python3-git python3-jinja2 libegl1-mesa libsdl1.2-dev python3-subunit mesa-common-dev zstd liblz4-tool file locales libacl1 vim intltool sudo gnu-efi
+
+locale-gen en_US en_US.UTF-8
+dpkg-reconfigure locales 
+97
+3
+
+git config --global safe.directory '*'
+
+cd /usr/bin/
+mv tar tart
+vim tar
+
+#/bin/bash
+/bin/tart "$@" --no-same-owner
+
+chmod +x tar
+
+# build
+
+cd /build/oe-qky-kirkstone
+
+./create-oe-quirky
+
+cd /build/kirkstone/oe-quirky
+tar -xvf /build/tarballs-libreoffice.tar.gz
+
+source oe-init-build-env build-amd64
+bitbake core-image-minimal
+
+
