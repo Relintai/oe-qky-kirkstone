@@ -91,7 +91,7 @@ vim /build/kirkstone/oe-quirky/build-amd64/tmp/work/nocona-64-poky-linux/libreof
 -e del
 
 
-vim /build/kirkstone/oe-quirky/build-amd64/tmp/work/nocona-64-poky-linux/xresprobe/0.4.25-r6/xresprobe-0.4.24ubuntu9/ddcprobe
+vim /build/kirkstone/oe-quirky/build-amd64/tmp/work/nocona-64-poky-linux/xresprobe/0.4.25-r6/xresprobe-0.4.24ubuntu9/ddcprobe/common.h
 
 enum {  
         edid_monitor_descriptor_serial = 0xff,
