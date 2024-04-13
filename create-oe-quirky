@@ -231,8 +231,12 @@ sync
 #2021 libreoffice downloads extra source packages, have already got them here (for libreoffice 7.1.3.2)
 cd $PROJECTPATH
 if [ ! -d ${BUILDSPATH}/tarballs-libreoffice ];then
+ cd $PROJECTPATH
+ if [ ! -f tarballs-libreoffice.tar.gz ];then
+  wget https://distro.ibiblio.org/easyos/source/extra/oe-qky-kirkstone/tarballs-libreoffice.tar.gz
+ fi
+ cp tarballs-libreoffice.tar.gz $BUILDSPATH
  cd $BUILDSPATH
- wget https://distro.ibiblio.org/easyos/source/extra/oe-qky-dunfell/tarballs-libreoffice.tar.gz
  tar -xf tarballs-libreoffice.tar.gz
  sync
  rm -f tarballs-libreoffice.tar.gz
