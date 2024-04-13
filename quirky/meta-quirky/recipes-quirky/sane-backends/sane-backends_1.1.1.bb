@@ -35,6 +35,8 @@ do_configure:prepend() {
 # --disable-nls still get po fail. do this:
 do_compile:prepend() {
  echo -e '\n\nall:\n\ninstall:\n\nclean:\n\nuninstall:\n\n' > ${B}/po/Makefile
+ # When building in a debian container -e also gets echoed into the file for some weird reason.... (Does not happen in a terminal on the host...)
+ sed -i -e 's/-e//' ${B}/po/Makefile
 }
 
 do_install:append() {
