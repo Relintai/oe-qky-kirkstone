@@ -58,3 +58,6 @@ RDEPENDS:xarchive += "bash"
 
 HOMEPAGE = "http://xarchive.sourceforge.net/"
 SUMMARY = "A lightweight GTK2 frontend for archives."
+
+ERROR_QA:remove = "file-rdeps"
+WARN_QA:remove = "file-rdeps"

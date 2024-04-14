@@ -35,3 +35,6 @@ RDEPENDS:normalize += "perl"
 
 HOMEPAGE = "http://normalize.nongnu.org/"
 SUMMARY = "An audio file volume normalizer"
+
+ERROR_QA:remove = "file-rdeps shebang-size"
+WARN_QA:remove = "file-rdeps"

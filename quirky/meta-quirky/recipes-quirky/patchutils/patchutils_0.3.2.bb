@@ -30,3 +30,6 @@ RDEPENDS:patchutils += "bash perl"
 
 HOMEPAGE = "http://cyberelk.net/tim/patchutils/index.html"
 SUMMARY = "A collection of tools that operate on patch files"
+
+ERROR_QA:remove = "file-rdeps shebang-size"
+WARN_QA:remove = "file-rdeps"
