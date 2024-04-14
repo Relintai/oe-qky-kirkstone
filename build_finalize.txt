@@ -1,0 +1,87 @@
+
+cd /build/kirkstone/oe-quirky
+
+./export-pkgs amd64
+
+cd /build
+mkdir distro
+mkdir out
+mkdir pkgs
+
+cd distro
+
+if [ ! -d woofq ]; then
+    git clone https://github.com/bkauler/woofq.git
+fi
+
+cd /build/distro/woofq/easyos
+
+vim merge2out
+
+set
+BUILDSPATH='/mnt/build/builds/woof' ###SET THIS### 20220131 20230326
+PKGSPATH="/mnt/build/bk/projects/woof/woof-pkgs" #20221110 ###SET THIS### 20230326
+
+to
+
+BUILDSPATH='/build/distro/out' ###SET THIS### 20220131 20230326
+PKGSPATH="/build/distro/pkgs" #20221110 ###SET THIS### 20230326
+
+comment out:
+. /etc/DISTRO_SPECS #has DISTRO_TARGETARCH
+
+add:
+
+DISTRO_TARGETARCH="amd64"
+
+
+./merge2out
+
+2
+3
+2
+
+ENTER
+ENTER
+
+cd /build/distro/out/easy-out_amd64_amd64_oe_kirkstone
+
+
+rm PKGS_HOMEPAGES
+cp /build/kirkstone/PKGS_HOMEPAGES .
+cd packages-oe-kirkstone
+cp /build/kirkstone/packages-oe-kirkstone/* .
+
+cd ..
+
+
+./1download
+
+./1download-pci-usb-ids
+
+vim 2createpackages
+
+from
+. /etc/xdg/menus/hierarchy #w478 has PUPHIERARCHY variable.
+
+to
+#. /etc/xdg/menus/hierarchy #w478 has PUPHIERARCHY variable.
+
+and 
+
+xARCHDIR="$DISTRO_xARCHDIR" #20230904
+if [ "${xARCHDIR:0:1}" == "/" ];then
+ ARCHDIR="${xARCHDIR:1:99}"
+ #...this means if xARCHDIR=/x86_64-linux-gnu then path is /usr/lib/x86_64-linux-gnu
+else
+ ARCHDIR=''
+fi
+
+to
+
+ARCHDIR=''
+
+
+./2createpackages
+
+TODO the last few steps likely only work on Puppy Linux or EasyOS.
